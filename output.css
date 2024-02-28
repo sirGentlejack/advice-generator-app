@@ -4,7 +4,27 @@
 }
 
 .attribution a {
-  color: red;
+  color: hsl(228, 45%, 44%);
 }
 
 /*# sourceMappingURL=output.css.map */
+body {
+  background: hsl(218, 23%, 16%) !important;
+  width: 1440px;
+}
+.container{
+  width: 500px;
+  box-shadow: -2px 2px 16px black;
+  background: hsl(217, 19%, 24%);
+  border-radius: 10px;
+  text-align: center;
+  margin: 200px auto;
+  margin-bottom: 0;
+
+  h6{
+    color: hsl(150, 100%, 66%);
+  }
+  h2{
+    color: #fff;
+  }
+}
