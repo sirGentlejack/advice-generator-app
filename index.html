@@ -20,15 +20,53 @@
   </head>
   <body>
     <div class="container">
-      <h6>Advice #<!-- Advice ID goes here --></h6>
+      <h6 id="adviceId">Advice #<!-- Advice ID goes here --></h6>
 
-      <h2>"<!-- Advice text goes here -->"</h2>
+      <h2 id="adviceText">"<!-- Advice text goes here -->"</h2>
+
+      <div class="line">
+        <hr />
+        <p>| |</p>
+        <hr />
+      </div>
+
+      <button onclick="fetchAdvice()" class="generateBtn">
+        Generate new advice
+      </button>
     </div>
+
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
       >. Coded by <a href="#">GentlejackB</a>.
     </div>
+
+    <script>
+      // Function to fetch advice from API
+      function fetchAdvice() {
+        fetch("https://api.adviceslip.com/advice")
+          .then((response) => response.json())
+          .then((data) => {
+            // Extract advice text
+            const adviceText = data.slip.advice;
+
+            // Generate a unique ID for the advice (you can use any method to generate ID)
+            const adviceId = Math.floor(Math.random() * 1000); // Example ID
+
+            // Modify HTML elements with fetched advice text and ID
+            document.getElementById(
+              "adviceId"
+            ).textContent = `Advice #${adviceId}`;
+            document.getElementById(
+              "adviceText"
+            ).textContent = `"${adviceText}"`;
+          })
+          .catch((error) => console.error("Error fetching advice:", error));
+      }
+
+      // Call fetchAdvice function when the page loads
+      window.onload = fetchAdvice;
+    </script>
   </body>
 </html>
