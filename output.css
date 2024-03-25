@@ -55,3 +55,16 @@ body {
     cursor: pointer;
   }
 }
+
+@media(max-width:600px){
+  body {
+    width: 100%;
+  }
+  .container{
+    width: 250px !important;
+    margin: 120px auto;
+    padding: 20px 30px;
+
+  } 
+  
+}
